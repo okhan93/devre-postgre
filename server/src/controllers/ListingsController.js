@@ -5,7 +5,6 @@ module.exports = {
     async index (req, res) {
         try {
             const listings = await Listing.findAll({
-                limit: 30
             })
             res.send(listings)
         } catch (err) {
@@ -20,7 +19,6 @@ module.exports = {
             const { whereStatement, sort } = req.body
 
             const listings = await Listing.findAll({
-                limit: 30,
                 where: whereStatement,
                 order: sort
             })

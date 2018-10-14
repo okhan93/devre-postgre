@@ -1,7 +1,12 @@
 <template>
 <v-card>
-        <v-img
+        <!-- <v-img
           :src="houses[Math.floor(Math.random() * 10)]"
+          aspect-ratio="2.75"
+          height="150px"
+        ></v-img> -->
+        <v-img
+          :src="listing.picture"
           aspect-ratio="2.75"
           height="150px"
         ></v-img>

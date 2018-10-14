@@ -3,9 +3,10 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
-import Songs from '@/components/Songs'
-import CreateSong from '@/components/CreateSong'
+import Grid from '@/components/Grid'
 import Account from '@/components/Account'
+import MapView from '@/components/MapView'
+import Maptest from '@/components/Maptest'
 
 Vue.use(Router)
 
@@ -27,19 +28,24 @@ export default new Router({
       component: Login
     },
     {
-      path: '/songs',
-      name: 'Songs',
-      component: Songs
-    },
-    {
-      path: '/songs/create',
-      name: 'create-song',
-      component: CreateSong
+      path: '/grid',
+      name: 'Grid',
+      component: Grid
     },
     {
       path: '/account',
       name: 'account',
       component: Account
+    },
+    {
+      path: '/mapview',
+      name: 'mapview',
+      component: MapView
+    },
+    {
+      path: '/maptest',
+      name: 'maptset',
+      component: Maptest
     }
   ]
 })

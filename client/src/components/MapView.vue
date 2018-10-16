@@ -15,6 +15,7 @@
             v-for="listing in listings"
             :position="{lat:listing.latitude, lng:listing.longitude}"
             :key="listing.id"
+            @click="showListing(listing.id)"
             icon="https://i.imgur.com/j2cl6Xx.png"
           ></gmap-marker>
         </gmap-cluster>
@@ -44,14 +45,14 @@
           <v-range-slider
             class="pl-2 pr-w"
             v-model="price"
-            :max="11000000"
+            :max="5000000"
             :min="0"
             :step="1000"
             v-on:change="filter"
           />
         </v-flex>
       </v-layout>
-      <div style="overflow:scroll; height:71vh">
+      <div style="overflow:scroll; height:71vh;">
         <v-container fluid grid-list-md>
           <v-layout row wrap="">
             <v-flex xs6 mb-1 v-for="listing in grid" :key="listing.MLS_Num">
@@ -60,16 +61,17 @@
           </v-layout>
         </v-container>
       </div>
-      <div style="height: 15vh">
+      <div style="height: 5.5vh; margin-top: 10px">
         <v-pagination v-model="page" :length="numPages"></v-pagination>
+        <!-- </v-container> -->
       </div>
     </v-flex>
   </v-layout>
-  <!-- </v-container> -->
 </template>
 
 <script>
 import ListingsService from '../services/ListingsService'
+
 import Panel from '@/components/panel'
 import Card from '@/components/card'
 export default {
@@ -79,7 +81,7 @@ export default {
       viewMaxLat: null,
       viewMinLng: null,
       viewMaxLng: null,
-      cardPerGrid: 10,
+      cardPerGrid: 20,
       page: 1,
       swtich1: false,
       Bed: null,
@@ -127,8 +129,8 @@ export default {
       if (this.switch1) {
         sort = [['price', 'ASC']]
       } else { sort = [['price', 'DESC']] }
-      whereStatement.latitude = { between: [this.viewMinLat, this.viewMaxLat] }
-      whereStatement.longitude = { between: [this.viewMinLng, this.viewMaxLng] }
+      whereStatement.latitude = { $between: [this.viewMinLat, this.viewMaxLat] }
+      whereStatement.longitude = { $between: [this.viewMinLng, this.viewMaxLng] }
 
       whereStatement.price = { $between: [this.price[0], this.price[1]] }
       console.log(whereStatement)

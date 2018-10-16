@@ -1,5 +1,4 @@
 const Promise = require('bluebird')
-//const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 const bcrypt = require('bcrypt')
 
 function hashPassword (user, options) {
@@ -15,9 +14,7 @@ function hashPassword (user, options) {
     })
     .catch(err => {
       throw new Error();
-    });
-
-
+    })
 }
 
 module.exports = (sequelize, DataTypes) => {

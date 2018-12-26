@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start1": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js --exec \"npm run lint --fix && node\"",
+    "lint1": "eslint --fix **/*.js ",
     "start": "./node_modules/nodemon/bin/nodemon.js src/app.js --exec 'npm run lint && node'",
     "lint": "./node_modules/.bin/eslint src/*.js"
   },
@@ -22,6 +26,8 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4",
+    "pg": "^7.5.0",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^4.39.0",
     "sqlite3": "^4.0.2"
   },

@@ -1,13 +1,13 @@
 import Api from '@/services/Api'
 
 export default {
-  index () {
-    return Api().get('useractivity')
+  getActivity(activity) {
+    return Api().post('getuseractivity', activity)
   },
-  addActivity (activity) {
-    return Api().post('useractivity', activity)
+  addActivity(activity) {
+    return Api().post('adduseractivity', activity)
   },
-  removeActivity (activity) {
-    return Api().post('useractivity', activity)
+  removeActivity(activity) {
+    return Api().post('deleteuseractivity', activity)
   }
 }

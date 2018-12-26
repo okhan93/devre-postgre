@@ -1,10 +1,16 @@
 import Api from '@/services/Api'
 
 export default {
-  index () {
+  individualListing(listing) {
+    return Api().post('individualListing', listing)
+  },
+  index() {
     return Api().get('listings')
   },
-  filter (listing) {
+  filter(listing) {
     return Api().post('listings', listing)
+  },
+  gridView(listing) {
+    return Api().post('loadgridlistings', listing)
   }
 }

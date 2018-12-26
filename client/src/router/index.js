@@ -7,6 +7,7 @@ import Grid from '@/components/Grid'
 import Account from '@/components/Account'
 import MapView from '@/components/MapView'
 import Maptest from '@/components/Maptest'
+import Listing from '@/components/Listing'
 
 Vue.use(Router)
 
@@ -44,8 +45,13 @@ export default new Router({
     },
     {
       path: '/maptest',
-      name: 'maptset',
+      name: 'maptest',
       component: Maptest
+    },
+    {
+      path: '/listing/:MLSNum',
+      name: 'listing',
+      component: Listing
     }
   ]
 })
